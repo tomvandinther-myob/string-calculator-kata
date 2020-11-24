@@ -1,3 +1,4 @@
+using System;
 using Xunit;
 
 namespace StringCalculator.UnitTests
@@ -54,6 +55,13 @@ namespace StringCalculator.UnitTests
 			var result = _stringCalculator.Add(value);
 
 			Assert.Equal(expectedResult, result);
+		}
+		
+		[Theory]
+		[InlineData("-1,2,-3")]
+		public void Add_XNumbers_Negatives_ShouldThrowException(string value)
+		{
+			Assert.Throws<Exception>(() => _stringCalculator.Add(value));
 		}
 	}
 }
