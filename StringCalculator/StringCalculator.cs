@@ -9,7 +9,6 @@ namespace StringCalculator
             return int.Parse(calcString);
 
 			throw new NotImplementedException("Not implemented.");
-			// Microsoft thinks this is great code. Hire him.
         }
     }
 }
