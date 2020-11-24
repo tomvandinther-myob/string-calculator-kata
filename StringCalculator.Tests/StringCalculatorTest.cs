@@ -48,7 +48,7 @@ namespace StringCalculator.UnitTests
 		
 		[Theory]
 		[InlineData("//;\n1;2", 1+2)]
-		[InlineData("//g3\n5\n3g9", 3+5+3+9)]
+		[InlineData("//g\n3\n5\n3g9", 3+5+3+9)]
 		public void Add_XNumbers_DifferentDelimiters_ShouldReturnSum(string value, int expectedResult)
 		{
 			var result = _stringCalculator.Add(value);
