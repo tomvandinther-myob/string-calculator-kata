@@ -7,14 +7,23 @@ namespace StringCalculator.UnitTests
 		private readonly StringCalculator _stringCalculator = new StringCalculator();
 		
 		[Theory]
-		[InlineData("1")]
-		[InlineData("3")]
-		public void Add_String_ShouldReturnItself(string value)
+		[InlineData("1", 1)]
+		[InlineData("3", 3)]
+		public void Add_SingleNumber_ShouldReturnItself(string value, int expectedResult)
 		{
 			var result = _stringCalculator.Add(value);
-			var expectedResult = int.Parse(value);
 
-			Assert.Equal(expectedResult, result); // How to annotate a test with a description?
+			Assert.Equal(expectedResult, result);
+		}
+
+		[Theory]
+		[InlineData("1,3", 1+3)]
+		[InlineData("3,5", 3+5)]
+		public void Add_TwoNumbers_ShouldReturnSum(string value, int expectedResult)
+		{
+			var result = _stringCalculator.Add(value);
+
+			Assert.Equal(expectedResult, result);
 		}
 	}
 }
