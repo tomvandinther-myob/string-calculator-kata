@@ -13,6 +13,7 @@ namespace StringCalculator.Tests
         [InlineData("//;\n1;2", new int[] { 1, 2 })]
         [InlineData("1000,1001,2", new int[] { 2 })]
         [InlineData("//[***]\n1***2***3", new int[] { 1, 2, 3 })]
+        [InlineData("//[*1*][%]\n1*1*2%3", new int[] { 1, 2, 3 })]
         public void ParseInts_ShouldReturnIntArray(string value, int[] expectedResult)
         {
             var result = _intParser.ParseInts(value);

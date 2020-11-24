@@ -95,5 +95,13 @@ namespace StringCalculator.Tests
 			var result = _stringCalculator.Add(value);
 			Assert.Equal(expectedResult, result);
 		}
+		
+		[Theory]
+		[InlineData("//[*1*][%]\n1*1*2%3", 1+2+3)]
+		public void Add_XNumbers_ManyAnyLengthDelimiters_WithNumbers_ShouldReturnSum(string value, int expectedResult)
+		{
+			var result = _stringCalculator.Add(value);
+			Assert.Equal(expectedResult, result);
+		}
 	}
 }
