@@ -8,7 +8,8 @@ namespace StringCalculator
 
         private int[] ParseInts(string calcString)
         {
-            return calcString.Split(",").Select(int.Parse).ToArray();
+            char[] delimiters = {',', '\n'};
+            return calcString.Split(delimiters).Select(int.Parse).ToArray();
         }
         
 		public int Add(string calcString)
