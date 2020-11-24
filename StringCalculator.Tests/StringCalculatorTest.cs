@@ -63,5 +63,13 @@ namespace StringCalculator.UnitTests
 		{
 			Assert.Throws<Exception>(() => _stringCalculator.Add(value));
 		}
+		
+		[Theory]
+		[InlineData("1000,1001,2", 2)]
+		public void Add_XNumbers_IgnoreOver999_ShouldReturnSum(string value, int expectedResult)
+		{
+			var result = _stringCalculator.Add(value);
+			Assert.Equal(expectedResult, result);
+		}
 	}
 }
