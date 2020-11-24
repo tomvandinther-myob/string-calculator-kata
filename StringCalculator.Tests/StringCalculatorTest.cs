@@ -25,5 +25,15 @@ namespace StringCalculator.UnitTests
 
 			Assert.Equal(expectedResult, result);
 		}
+		
+		[Theory]
+		[InlineData("1,2,3", 1+2+3)]
+		[InlineData("3,5,3,9", 3+5+3+9)]
+		public void Add_XNumbers_ShouldReturnSum(string value, int expectedResult)
+		{
+			var result = _stringCalculator.Add(value);
+
+			Assert.Equal(expectedResult, result);
+		}
 	}
 }
