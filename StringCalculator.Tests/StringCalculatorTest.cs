@@ -71,5 +71,13 @@ namespace StringCalculator.UnitTests
 			var result = _stringCalculator.Add(value);
 			Assert.Equal(expectedResult, result);
 		}
+		
+		[Theory]
+		[InlineData("//[***]\n1***2***3", 6)]
+		public void Add_XNumbers_AnyLengthDelimiter_ShouldReturnSum(string value, int expectedResult)
+		{
+			var result = _stringCalculator.Add(value);
+			Assert.Equal(expectedResult, result);
+		}
 	}
 }
