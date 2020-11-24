@@ -18,13 +18,15 @@ namespace StringCalculator
             
             char[] delimiters = {customDelimiter, '\n'};
             List<int> numbers = new List<int>();
+            List<int> negatives = new List<int>();
             
             foreach (var stringInt in calcString.Split(delimiters))
             {
                 var n = int.Parse(stringInt);
-                numbers.Add(n);
+                if (n < 0) negatives.Add(n);
+                else numbers.Add(n);
             }
-
+            if (negatives.Any()) throw new Exception("Negatives not allowed:");
             return numbers.ToArray();
         }
         
