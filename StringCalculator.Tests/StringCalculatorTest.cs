@@ -73,8 +73,16 @@ namespace StringCalculator.Tests
 		}
 		
 		[Theory]
-		[InlineData("//[***]\n1***2***3", 6)]
+		[InlineData("//[***]\n1***2***3", 1+2+3)]
 		public void Add_XNumbers_AnyLengthDelimiter_ShouldReturnSum(string value, int expectedResult)
+		{
+			var result = _stringCalculator.Add(value);
+			Assert.Equal(expectedResult, result);
+		}
+		
+		[Theory]
+		[InlineData("//[*][%]\n1*2%3", 1+2+3)]
+		public void Add_XNumbers_ManyAnyLengthDelimiter_ShouldReturnSum(string value, int expectedResult)
 		{
 			var result = _stringCalculator.Add(value);
 			Assert.Equal(expectedResult, result);
