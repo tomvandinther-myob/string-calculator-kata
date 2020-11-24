@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace StringCalculator.UnitTests
+namespace StringCalculator.Tests
 {
 	public class StringCalculatorTest
 	{
