@@ -24,6 +24,7 @@ namespace StringCalculator
             {
                 var n = int.Parse(stringInt);
                 if (n < 0) negatives.Add(n);
+                else if (n >= 1000);
                 else numbers.Add(n);
             }
             if (negatives.Any()) throw new Exception("Negatives not allowed:");
